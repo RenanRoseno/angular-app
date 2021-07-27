@@ -12,11 +12,12 @@ export class PainelComponent implements OnInit {
   public frases: Array<Frase> = FRASES;
   public resposta: string = '';
   public rodada: number = 0;
-  public rodadaFrase: Frase;
-  public progresso = 0;
+  public rodadaFrase: Frase = new Frase('','');
+  public progresso: number = 0;
+  public tentativas : number = 3;
 
   constructor() {
-    this.rodadaFrase = this.frases[this.rodada];
+    this.mudarResposta();
   }
 
   ngOnInit(): void {
@@ -32,9 +33,20 @@ export class PainelComponent implements OnInit {
       this.progresso += (100 / this.frases.length);
       if (this.rodada + 1 < this.frases.length) {
         this.rodada++;
-        this.rodadaFrase = this.frases[this.rodada];
+        this.mudarResposta();
       }
     }
-    else console.log('Errou xuburro');
+    else {
+      console.log('Errou');
+      this.tentativas--;
+      if(this.tentativas === -1){
+        alert("GAME OVER :(");
+      }
+    }
+  }
+
+  private mudarResposta(): void {
+    this.rodadaFrase = this.frases[this.rodada];
+    this.resposta = '';
   }
 }

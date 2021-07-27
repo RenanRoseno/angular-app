@@ -4,7 +4,7 @@
             <app-progresso [progresso]="progresso"></app-progresso>
         </div>
         <div class="col-sm-6">
-            <app-tentativas></app-tentativas>
+            <app-tentativas [tentativas]=tentativas></app-tentativas>
         </div>
     </div>
     <div class="row">
@@ -13,7 +13,7 @@
             <p>{{rodadaFrase.fraseEng}}</p>
         </div>
         <div class="form-group">
-            <textarea class="form-control" rows="3" (input)="atualizaFrase($event)"></textarea>
+            <textarea class="form-control" rows="3" (input)="atualizaFrase($event)" [value]="resposta"></textarea>
         </div>
     </div>
     <div class="row margin">
