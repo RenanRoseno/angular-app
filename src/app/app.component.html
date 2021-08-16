@@ -1,17 +1,12 @@
-
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
-
 <app-topo></app-topo>
-<app-painel></app-painel>
-
-
+<app-painel (encerrarJogo)="encerrarJogo($event)" *ngIf="jogoEmAndamento"></app-painel>
+<div class="container">
+    <div class="row margin">
+        <div class="col">
+            <br>
+            <button type="button" class="btn btn-primary" (click)="novoJogo()" *ngIf="!jogoEmAndamento">Novo
+                jogo</button>
+        </div>
+    </div>
+</div>
 <router-outlet></router-outlet>
